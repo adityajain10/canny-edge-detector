@@ -16,7 +16,7 @@ Canny Edge Detector consists of four steps:
 * Use the 7 x 7 Gaussian mask as shown below for smoothing the input image. 
 * Use the center of the mask as the reference center. If part of the Gaussian mask goes outside of the image border, let the output image be undefined at the location of the reference center. 
 
-Note: The entries in the Gaussian mask do not sum to 1. 
+    Note: The entries in the Gaussian mask do not sum to 1. 
 
 * After performing convolution (or cross-correlation), you need to perform normalization by dividing the results by the sum of the entries (= 140 for the given mask) at each pixel location. 
 
