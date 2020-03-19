@@ -24,5 +24,9 @@ Canny Edge Detector consists of four steps:
 
 * At locations with undefined gradient values and at locations where the center pixel has a neighbor with undefined gradient value, let the output be zero (i.e., no edge.) 
 
-* For the fourth step, use double thresholding to threshold the gradient magnitude 𝑁𝑁(𝑖𝑖,𝑗𝑗) after non-maxima suppression into a
-binary edge map 𝐸𝐸(𝑖𝑖,𝑗𝑗). Set up a low threshold 𝑇𝑇1 and a high threshold 𝑇𝑇2 so that 𝑇𝑇2 = 2𝑇𝑇1.
+* For the fourth step, use double thresholding to threshold the gradient magnitude 𝑁(𝑖,𝑗) after non-maxima suppression into a
+binary edge map 𝐸(𝑖,𝑗). Set up a low threshold 𝑇1 and a high threshold 𝑇2 so that 𝑇2 = 2𝑇1.
+
+* If 𝑁(𝑖,𝑗) < 𝑇1, let 𝐸(𝑖,𝑗) = 0
+* If 𝑁𝑁(𝑖,𝑗) > 𝑇2, let 𝐸(𝑖,𝑗) = 255
+* If 𝑇1 ≤ 𝑁(𝑖,𝑗) ≤ 𝑇2, let 𝐸(𝑖,𝑗) = 255 if pixel (𝑖,𝑗) has an 8-connected neighbor (𝑖𝑖′,𝑗𝑗′) with gradient magnitude 𝑁𝑁(𝑖𝑖′,𝑗𝑗′) > 𝑇𝑇2 AND the gradient angles of (𝑖𝑖,𝑗𝑗) and (𝑖𝑖′,𝑗𝑗′) differ by 45° or less (i.e., |𝜃𝜃(𝑖𝑖,𝑗𝑗) − 𝜃𝜃(𝑖𝑖′,𝑗𝑗′)| ≤ 45°); otherwise, let 𝐸𝐸(𝑖𝑖,𝑗𝑗) = 0.
