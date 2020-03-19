@@ -3,6 +3,9 @@
 * Produces segments of thin image contours.
 * Approximation to an operator that optimizes the product of signal-to-noise ratio and localization
 
+<img src = "output/double_thresholding.bmp" width = "25%">
+<img src = "output2/double_thresholding.bmp" width = "25%">
+
 ## Steps
 Canny Edge Detector consists of four steps:
 
@@ -30,3 +33,30 @@ binary edge map 𝐸(𝑖,𝑗). Set up a low threshold 𝑇1 and a high thresho
 * If 𝑁(𝑖,𝑗) < 𝑇1, let 𝐸(𝑖,𝑗) = 0
 * If 𝑁𝑁(𝑖,𝑗) > 𝑇2, let 𝐸(𝑖,𝑗) = 255
 * If 𝑇1 ≤ 𝑁(𝑖,𝑗) ≤ 𝑇2, let 𝐸(𝑖,𝑗) = 255 if pixel (𝑖,𝑗) has an 8-connected neighbor (𝑖𝑖′,𝑗𝑗′) with gradient magnitude 𝑁𝑁(𝑖𝑖′,𝑗𝑗′) > 𝑇𝑇2 AND the gradient angles of (𝑖𝑖,𝑗𝑗) and (𝑖𝑖′,𝑗𝑗′) differ by 45° or less (i.e., |𝜃𝜃(𝑖𝑖,𝑗𝑗) − 𝜃𝜃(𝑖𝑖′,𝑗𝑗′)| ≤ 45°); otherwise, let 𝐸𝐸(𝑖𝑖,𝑗𝑗) = 0.
+
+
+## Output
+
+### Step 1: Gaussian smoothing & normalization
+<img src = "output/gaussian_smoothing.bmp" width = "25%">
+<img src = "output2/gaussian_smoothing.bmp" width = "25%">
+
+### Step 2: Writing Horizontal Gradient
+<img src = "output/horizontal_gradient.bmp" width = "25%">
+<img src = "output2/horizontal_gradient.bmp" width = "25%">
+
+### Step 3 : Writing Vertical Gradient
+<img src = "output/vertical_gradient.bmp" width = "25%">
+<img src = "output2/vertical_gradient.bmp" width = "25%">
+
+### Step 4: Writing Gradient Magnitude
+<img src = "output/gradient_image.bmp" width = "25%">
+<img src = "output2/gradient_image.bmp" width = "25%">
+
+### Step 5: Apply non-maxima suppression to gradient magnitude
+<img src = "output/non-maxima_suppressed.bmp" width = "25%">
+<img src = "output2/non-maxima_suppressed.bmp" width = "25%">
+
+### Step 6: Double Thresholding
+<img src = "output/double_thresholding.bmp" width = "25%">
+<img src = "output2/double_thresholding.bmp" width = "25%">
